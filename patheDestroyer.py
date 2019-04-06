@@ -1,10 +1,19 @@
+from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 import time
+display = Display(visible=0, size=(1920, 1080))
+display.start()
 
-driver = webdriver.Chrome("./usr/bin/chromedriver")
-driver.set_window_size(1920, 1080)
+chrome_options = Options()
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--window-size=1920,1080')
+#chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+
+driver = webdriver.Chrome("/usr/bin/chromedriver", chrome_options=chrome_options)
 driver.set_page_load_timeout(100)
 
 print("Pathe destroyer is starting")
@@ -25,17 +34,15 @@ def addPlace(placeNM):
 
 
 print("One Seat Blocked")
-addPlace('//*[@id="seatIdF4"]')
+addPlace('//*[@id="seatIdB4"]')
 print("Two Seats Blocked")
-addPlace('//*[@id="seatIdF3"]')
-
+addPlace('//*[@id="seatIdB3"]')
 print("Three Seats Blocked")
-
-addPlace('//*[@id="seatIdF5"]')
+addPlace('//*[@id="seatIdB5"]')
 print("Four Seats Blocked")
-addPlace('//*[@id="seatIdF1"]')
+addPlace('//*[@id="seatIdB1"]')
 print("Five Seats Blocked")
-addPlace('//*[@id="seatIdF2"]')
+addPlace('//*[@id="seatIdB2"]')
 
 
 def find1(driver):
@@ -92,3 +99,6 @@ time.sleep(1)
 
 print("Pathe destroyer will run again in 10 minutes")
 driver.quit()
+
+
+
