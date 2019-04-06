@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 import time
 
-driver = webdriver.Chrome("C:\\Users\\lulu\\Desktop\\articles\\chromedriver_win32\\chromedriver.exe")
+driver = webdriver.Chrome("./usr/bin/chromedriver")
 driver.set_window_size(1920, 1080)
 driver.set_page_load_timeout(100)
 
