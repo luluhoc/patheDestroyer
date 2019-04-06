@@ -15,9 +15,9 @@ chrome_options.add_argument('--disable-gpu')
 
 driver = webdriver.Chrome("/usr/bin/chromedriver", chrome_options=chrome_options)
 #choose your seats
-seat = ['//*[@id="seatIdE15"]', '//*[@id="seatIdE16"]', '//*[@id="seatIdE17"]', '//*[@id="seatIdE18"]', '//*[@id="seatIdE19"]', '//*[@id="seatIdE20"]']
+seat = ['//*[@id="seatIdA28"]', '//*[@id="seatIdB28"]', '//*[@id="seatIdC28"]', '//*[@id="seatIdD28"]', '//*[@id="seatIdE28"]', '//*[@id="seatIdE26"]', '//*[@id="seatIdE24"]', '//*[@id="seatIdE22"]']
 #Link to movie booking
-bookingLink = "http://s.cinemaspathegaumont.com/#/C3132S50381/booking"
+bookingLink = "https://s.cinemaspathegaumont.com/#/C3380S203854/booking"
 
 
 
@@ -51,15 +51,19 @@ print("Five Seats Blocked")
 addPlace(seat[4])
 print("Six Seats Blocked")
 addPlace(seat[5])
+print("Seven Seats Blocked")
+addPlace(seat[6])
+print("Eight Seats Blocked")
+addPlace(seat[7])
 
 
+#checkout
 def find1(driver):
     element = driver.find_elements_by_xpath("/html/body/cgp-front-app/section/div[1]/div[4]/div[8]/div[2]")
     if element:
         return element
     else:
         return False
-
 
 element = WebDriverWait(driver, 30).until(find1)
 element = driver.find_element_by_xpath("/html/body/cgp-front-app/section/div[1]/div[4]/div[8]/div[2]/a")
@@ -76,13 +80,11 @@ def find2(driver):
     else:
         return False
 
-
 element = WebDriverWait(driver, 30).until(find2)
 element = driver.find_element_by_xpath(
     "/html/body/cgp-front-app/section/div[1]/div[3]/div[1]/div[1]/div[1]/div/div[2]/button")
 driver.execute_script("arguments[0].click();", element)
 time.sleep(1)
-
 
 def find3(driver):
     element = driver.find_elements_by_xpath('//*[@id="popin-ajout-carte-cinepass"]/div[2]/div/div[1]/div/a')
