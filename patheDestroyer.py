@@ -14,8 +14,9 @@ chrome_options.add_argument('--window-size=1920,1080')
 chrome_options.add_argument('--disable-gpu')
 
 driver = webdriver.Chrome("/usr/bin/chromedriver", chrome_options=chrome_options)
-
+#choose your seats
 seat = ['//*[@id="seatIdE15"]', '//*[@id="seatIdE16"]', '//*[@id="seatIdE17"]', '//*[@id="seatIdE18"]', '//*[@id="seatIdE19"]', '//*[@id="seatIdE20"]']
+#Link to movie booking
 bookingLink = "http://s.cinemaspathegaumont.com/#/C3132S50381/booking"
 
 
@@ -59,9 +60,10 @@ def find1(driver):
     else:
         return False
 
-print("Going to checkout")
+
 element = WebDriverWait(driver, 30).until(find1)
 element = driver.find_element_by_xpath("/html/body/cgp-front-app/section/div[1]/div[4]/div[8]/div[2]/a")
+print("Going to checkout")
 driver.execute_script("arguments[0].click();", element)
 time.sleep(1)
 
