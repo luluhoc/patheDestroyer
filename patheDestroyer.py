@@ -25,7 +25,7 @@ print("Pathe destroyer is starting")
 driver.get(bookingLink)
 
 def find(driver):
-    element = driver.find_elements_by_id("seatIdF4")
+    element = driver.find_elements_by_xpath(seat[0])
     if element:
         return element
     else:
@@ -51,6 +51,14 @@ addPlace(seat[4])
 print("Six Seats Blocked")
 addPlace(seat[5])
 
+def checkout(driver):
+    buttonBook = driver.find_elements_by_xpath("/html/body/cgp-front-app/section/div[1]/div[4]/div[8]/div[2]/a")
+    if buttonBook:
+        return buttonBook
+    else:
+        return False
+
+buttonBook = WebDriverWait(driver, 10).until(checkout)
 element = driver.find_element_by_xpath("/html/body/cgp-front-app/section/div[1]/div[4]/div[8]/div[2]/a")
 print("Going to checkout")
 driver.execute_script("arguments[0].click();", element)
