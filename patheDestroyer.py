@@ -14,10 +14,15 @@ chrome_options.add_argument('--window-size=1920,1080')
 chrome_options.add_argument('--disable-gpu')
 
 driver = webdriver.Chrome("/usr/bin/chromedriver", chrome_options=chrome_options)
-driver.set_page_load_timeout(100)
 
+seat = ['//*[@id="seatIdE15"]', '//*[@id="seatIdE16"]', '//*[@id="seatIdE17"]', '//*[@id="seatIdE18"]', '//*[@id="seatIdE19"]', '//*[@id="seatIdE20"]']
+bookingLink = "http://s.cinemaspathegaumont.com/#/C3132S50381/booking"
+
+
+
+driver.set_page_load_timeout(100)
 print("Pathe destroyer is starting")
-driver.get("http://s.cinemaspathegaumont.com/#/C3132S50381/booking")
+driver.get(bookingLink)
 
 def find(driver):
     element = driver.find_elements_by_id("seatIdF4")
@@ -34,15 +39,17 @@ def addPlace(placeNM):
 
 
 print("One Seat Blocked")
-addPlace('//*[@id="seatIdB4"]')
+addPlace(seat[0])
 print("Two Seats Blocked")
-addPlace('//*[@id="seatIdB3"]')
+addPlace(seat[1])
 print("Three Seats Blocked")
-addPlace('//*[@id="seatIdB5"]')
+addPlace(seat[2])
 print("Four Seats Blocked")
-addPlace('//*[@id="seatIdB1"]')
+addPlace(seat[3])
 print("Five Seats Blocked")
-addPlace('//*[@id="seatIdB2"]')
+addPlace(seat[4])
+print("Six Seats Blocked")
+addPlace(seat[5])
 
 
 def find1(driver):
