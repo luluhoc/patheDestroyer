@@ -36,7 +36,7 @@ def addPlace(placeNM):
     element = WebDriverWait(driver, 30).until(find)
     element = driver.find_element_by_xpath(placeNM)
     driver.execute_script("arguments[0].click();", element)
-    time.sleep(4)
+    time.sleep(1)
 
 
 print("One Seat Blocked")
